@@ -1,0 +1,21 @@
+{
+  "name": "entregable4back",
+  "version": "1.0.0",
+  "description": "Desarrollar un servidor de Express que funcione en el puerto 8080 e incorpore todos los middlewares necesarios para que la aplicación funcione correctamente: json, urlencoded, static, morgan, handlers (error y path). Enrutar correctamente los managers de fs de productos, usuarios y órdenes.",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./server.js",
+    "dev": "nodemon ./server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
