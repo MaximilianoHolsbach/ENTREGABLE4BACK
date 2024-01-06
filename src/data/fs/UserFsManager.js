@@ -63,14 +63,14 @@ class UserManager {
     }
   }
 
-  async update(id,image){
+  async update(id,data){
     try {
       const usuario = this.readOne(id)
       if(usuario == "El id ingresado no corresponde a ningún usuario"){
         throw new Error(`Ingrese un id ${id} valido`)
       }
-      usuario.photo = image
-      this.users.push(usuario)
+      const usuarioUpdate = Object.assign(usuario, data) 
+      this.users.push(usuarioUpdate)
       const userUpdate = JSON.stringify(this.users,null,2)
       fs.promises.writeFile(this.ruta,userUpdate,"utf-8")
     } catch (error) {
@@ -95,10 +95,10 @@ class UserManager {
   }
 }
 
-const user = new UserManager("./data/fs/files/userManager.json");
+const user = new UserManager("./files/userManager.json");
 
 export default user;
-/*
+
 user.create({
   name: "Andres",
   photo:
@@ -123,7 +123,7 @@ user.create({
     "https://png.pngtree.com/png-vector/20190321/ourlarge/pngtree-vector-users-icon-png-image_856952.jpg",
   email: "Cinthia@gamil.com",
 });
-*/
+
 //console.log(user.read());
 
 //console.log(user.readOne(2));
@@ -131,3 +131,11 @@ user.create({
 //user.destroy(3)
 
 //console.log(user.read());
+/*
+user.update(1,{
+  name: "A.Holsbach",
+  photo:"https://png.pngtree.com/png-vector/20190321/ourlarge/pngtree-vector-users-icon-png-image_856952.jpg",
+  email: "andres@gamil.com",
+})
+
+//console.log(user.read());*/

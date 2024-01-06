@@ -57,17 +57,15 @@ class ProductManager {
       return error.message;
     }
   }
-  async sold(id, quantity){
+  async update(id, data){
     try {
       const product = this.readOne(id)
       if(product == "El id ingresado no corresponde a ningún producto"){
         throw new Error(`Ingrese un id ${id} valido`)
-      }else if(product.stock < quantity || 0 == quantity){
-        throw new Error(`Ingrese una cantidad ${quantity} valida`)
       }else{
-        product.stock = product.stock - quantity
+        const productUpdate = Object.assign(product, data)
         const index = this.products.findIndex((product) => product.id == id)
-        this.products[index] = product
+        this.products[index] = productUpdate
         const productos = JSON.stringify(this.products,null,2)
         await fs.promises.writeFile(this.ruta,productos,"utf-8")
       }
@@ -94,7 +92,7 @@ class ProductManager {
   }
 }
 
-const producto = new ProductManager("src/data/fs/files/productManager.json");
+const producto = new ProductManager("./files/productManager.json");
 
 export default producto;
 /*
@@ -126,7 +124,7 @@ producto.create({
   price: 70,
   stock: 50,
 });
-*/
+
 //console.log(producto.read());
 
 //console.log(producto.readOne(1));
@@ -134,3 +132,12 @@ producto.create({
 //producto.destroy(3)
 
 //console.log(producto.read());
+
+producto.update(1,{
+  title: "TONER MP301",
+  photo:"https://png.pngtree.com/png-vector/20190321/ourlarge/pngtree-vector-users-icon-png-image_856952.jpg",
+  price: 100,
+  stock: 50,
+})
+
+console.log(producto.read())*/

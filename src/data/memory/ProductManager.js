@@ -72,6 +72,14 @@ class ProductManager {
   readOne(id) {
     return ProductManager.#productos.find((each) => each.id == Number(id));
   }
+  
+  update(id,data){
+    const productUpdate = this.readOne(id)
+    const product = Object.assign(productUpdate,data)
+    const index = ProductManager.#productos.findIndex((product) => product.id == id)
+    ProductManager.#productos[index] = product
+    return ProductManager.#productos
+  }
   destroy(id) {
     const index = ProductManager.#productos.findIndex(
       (product) => product.id === Number(id)
@@ -99,9 +107,20 @@ productos.create({
   price: 12,
   stock: 100,
 });
-
+/*
 console.log(productos.read());
 
 console.log(productos.readOne(1));
 
 console.log(productos.destroy(2));
+
+
+productos.update(2,{
+  title: "TONER RICOH MP 401",
+photo: "TONER 401",
+price: 50,
+stock: 100,
+})
+
+console.log(productos.read());
+*/

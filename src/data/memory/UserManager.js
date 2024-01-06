@@ -68,6 +68,14 @@ class UserManager {
   readOne(id) {
     return UserManager.#usuarios.find((each) => each.id == Number(id));
   }
+
+  update(id,data){
+    const userUpdate = this.readOne(id)
+    const user = Object.assign(userUpdate,data)
+    const index = UserManager.#usuarios.findIndex((user) => user.id == id)
+    UserManager.#usuarios[index] = user
+    return UserManager.#usuarios
+  }
   destroy(id) {
     const index = UserManager.#usuarios.findIndex(
       (user) => usuarios.id === Number(id)
@@ -92,9 +100,15 @@ usuarios.create({
   photo: "PERFIL",
   email: "G.TUR@GMAIL.COM",
 });
-
+/*
 console.log(usuarios.read());
 
 console.log(usuarios.readOne(3));
 
 console.log(usuarios.destroy(2));
+
+
+usuarios.update(2,{name:"L.VERA",photo:"foto perfil",email:"L.VERA@GMAIL.COM"})
+
+console.log(usuarios.read())
+*/

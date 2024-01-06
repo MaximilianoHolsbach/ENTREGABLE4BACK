@@ -3,35 +3,28 @@
     "id": 1,
     "title": "TONER MP301",
     "photo": "https://png.pngtree.com/png-vector/20190321/ourlarge/pngtree-vector-users-icon-png-image_856952.jpg",
-    "price": 10,
+    "price": 100,
     "stock": 50
   },
   {
     "id": 2,
-    "title": "TONER MP305",
+    "title": "TONER MP402",
     "photo": "https://png.pngtree.com/png-vector/20190321/ourlarge/pngtree-vector-users-icon-png-image_856952.jpg",
-    "price": 20,
+    "price": 30,
     "stock": 50
   },
   {
     "id": 3,
-    "title": "TONER MP402",
+    "title": "TONER MP501",
     "photo": "https://png.pngtree.com/png-vector/20190321/ourlarge/pngtree-vector-users-icon-png-image_856952.jpg",
-    "price": 80,
-    "stock": 45
-  },
-  {
-    "id": 4,
-    "title": "CILINDRO MP301",
-    "photo": "https://png.pngtree.com/png-vector/20190321/ourlarge/pngtree-vector-users-icon-png-image_856952.jpg",
-    "price": 1000,
+    "price": 50,
     "stock": 50
   },
   {
-    "id": 5,
-    "title": "CILINDRO MP402",
+    "id": 4,
+    "title": "TONER MP305",
     "photo": "https://png.pngtree.com/png-vector/20190321/ourlarge/pngtree-vector-users-icon-png-image_856952.jpg",
-    "price": 1000,
+    "price": 70,
     "stock": 50
   }
 ]
