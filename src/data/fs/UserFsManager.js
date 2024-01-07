@@ -98,7 +98,7 @@ class UserManager {
 const user = new UserManager("./src/data/fs/files/userManager.json");
 
 export default user;
-
+/*
 user.create({
   name: "Andres",
   photo:
@@ -123,7 +123,7 @@ user.create({
     "https://png.pngtree.com/png-vector/20190321/ourlarge/pngtree-vector-users-icon-png-image_856952.jpg",
   email: "Cinthia@gamil.com",
 });
-
+*/
 //console.log(user.read());
 
 //console.log(user.readOne(2));

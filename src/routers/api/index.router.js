@@ -5,7 +5,7 @@ import carritoRouter from "./orders.router.js"
 
 const apirouter = Router()
 
-apirouter.use("/user",usersRouter)
+apirouter.use("/users",usersRouter)
 apirouter.use("/products",productsRouter)
 apirouter.use("/orders",carritoRouter)
 
