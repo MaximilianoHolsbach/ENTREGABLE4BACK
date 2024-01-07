@@ -27,11 +27,12 @@ class OrdersManager{
         return OrdersManager.#orders.filter((order) => order.uid == uid) // Utilizamos el metodo filter para crear un array con todas las ordenes donde coincida el nombre del usuario. 
     }
 
-    update(id,data){
+    update(id, quantity, state){
         const orderUpdate = OrdersManager.#orders.find((order) => order.id == id)
-        const order = Object.assign(orderUpdate, data)
+        orderUpdate.quantity = quantity
+        orderUpdate.state = state
         const index = OrdersManager.#orders.findIndex((order) => order.id == id)
-        OrdersManager.#orders[index] = order
+        OrdersManager.#orders[index] = orderUpdate
         return OrdersManager.#orders
     }
 
@@ -67,21 +68,15 @@ orders.create(
         state : "Entregada"
     }
 )
-/*
+
 orders.read()
 
 //console.log(orders.readOne(2))
 
-orders.update(2,{
-    pid : 3,
-    uid : 2,
-    quantity : 1,
-    state : "Entregada"
-})
+orders.update(2,10,"Entregada")
 
-console.log(orders.readOne(2))
+//console.log(orders.readOne(2))
 
-orders.destroy(1)
+//orders.destroy(1)
 
 orders.read()
-*/

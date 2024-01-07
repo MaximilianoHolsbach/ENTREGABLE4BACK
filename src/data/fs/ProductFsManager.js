@@ -17,7 +17,6 @@ class ProductManager {
   async create(data) {
     try {
       const product = {
-        // Creamos el Usuario
         id:
           this.products.length === 0
             ? 1
@@ -92,7 +91,7 @@ class ProductManager {
   }
 }
 
-const producto = new ProductManager("./files/productManager.json");
+const producto = new ProductManager("./src/data/fs/files/productManager.json");
 
 export default producto;
 /*

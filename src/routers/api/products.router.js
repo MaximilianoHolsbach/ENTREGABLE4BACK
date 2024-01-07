@@ -61,7 +61,7 @@ productsRouter.get("/:pid", async (req, res, next) => {
 productsRouter.put("/:pid/:quantity", async (req, res, next) => {
   try {
     const { pid, quantity } = req.params;
-    const product = await producto.sold(pid, quantity);
+    const product = await producto.update(pid, quantity);
     if (
       product == `Ingrese un id ${pid} valido` ||
       product == `Ingrese una cantidad ${quantity} valida`
