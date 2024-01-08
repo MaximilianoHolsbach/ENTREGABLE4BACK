@@ -1,9 +1,10 @@
 import { Router } from "express";
 import carrito from "../../data/fs/OrdersManager.js";
+import carritoPost from "../../middleware/carritoPost.js";
 
 const carritoRouter = Router()
 
-carritoRouter.post("/", async (req, res) => {
+carritoRouter.post("/", carritoPost, async (req, res, next) => {
     try {
         const data = req.body
         const response = await carrito.create(data)
@@ -12,11 +13,11 @@ carritoRouter.post("/", async (req, res) => {
             response
         })
     } catch (error) {
-        return error.message
+        return next(error)
     }
 })
 
-carritoRouter.get("/", async (req, res) => {
+carritoRouter.get("/", async (req, res, next) => {
     try {
         const response = await carrito.read()
         return res.json({
@@ -24,11 +25,11 @@ carritoRouter.get("/", async (req, res) => {
             response
         })
     } catch (error) {
-        return error.message
+        return next(error)
     }
 })
 
-carritoRouter.get("/:uid", async (req, res) => {
+carritoRouter.get("/:uid", async (req, res, next) => {
     try {
         const {uid} = req.params
         const response = await carrito.readOne(uid)
@@ -37,11 +38,11 @@ carritoRouter.get("/:uid", async (req, res) => {
             response
         })
     } catch (error) {
-        return error.message
+        return next(error)
     }
 })
 
-carritoRouter.put("/:oid/:quantity/:state", async (req, res) => {
+carritoRouter.put("/:oid/:quantity/:state", async (req, res, next) => {
     try {
         const {oid,quantity,state} = req.params
         const response = carrito.update(oid,quantity,state)
@@ -50,11 +51,11 @@ carritoRouter.put("/:oid/:quantity/:state", async (req, res) => {
             response
         })
     } catch (error) {
-        return error.message
+        return next(error)
     }
 })
 
-carritoRouter.delete("/:oid", async (req, res) => {
+carritoRouter.delete("/:oid", async (req, res, next) => {
     try {
         const {oid} = req.params
         const response = carrito.destroy(oid)
@@ -63,7 +64,7 @@ carritoRouter.delete("/:oid", async (req, res) => {
             response
         })
     } catch (error) {
-        return error.message
+        return next(error)
     }
 })
 

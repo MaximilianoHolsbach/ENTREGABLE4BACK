@@ -1,5 +1,5 @@
 import fs from "fs";
-
+import crypto from "crypto"
 class UserManager {
   constructor(ruta) {
     this.users = [];
@@ -16,16 +16,9 @@ class UserManager {
   }
   async create(data) {
     try {
-      if (!(data.name || data.photo || data.email)) {
-        // Comprobamos la carga de los campos obligatorios
-        throw new Error("Todos los campos deben ser cargados");
-      }
       const user = {
         // Creamos el Usuario
-        id:
-          this.users.length === 0
-            ? 1
-            : this.users[this.users.length - 1].id + 1,
+        id: crypto.randomBytes(12).toString("hex"),
         name: data.name,
         photo: data.photo,
         email: data.email,
@@ -51,7 +44,7 @@ class UserManager {
   }
 
   readOne(id) {
-    const userById = this.users.find((user) => user.id === Number(id)); // Utilizamos el metodo .find para iterar el array y comparar el valor de la clave id con la ingresada
+    const userById = this.users.find((user) => user.id == (id)); // Utilizamos el metodo .find para iterar el array y comparar el valor de la clave id con la ingresada
     try {
       if (!userById) {
         throw new Error("El id ingresado no corresponde a ningún usuario");
@@ -80,7 +73,7 @@ class UserManager {
 
   async destroy(id) {
     try {
-      const index = this.users.findIndex((user) => user.id === Number(id));
+      const index = this.users.findIndex((user) => user.id == (id));
       if (index === -1) {
         throw new Error(
           `El id ${id} ingresado no corresponde a ningún usuario`

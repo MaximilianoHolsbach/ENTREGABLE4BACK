@@ -1,6 +1,6 @@
-function propsProducts(req, res, next){
-    const {title , photo , price} = req.body;
-    if(!title || !photo || !price){
+function carritoPost(req, res, next){
+    const {pid, uid, quantity, state} = req.body
+    if(!pid || !uid || !quantity || !state){
         return res.json({
             statusCode : 400,
             message : `${req.method} ${req.url} Todos los campos son requeridos`
@@ -10,4 +10,4 @@ function propsProducts(req, res, next){
     }
 }
 
-export default propsProducts
+export default carritoPost

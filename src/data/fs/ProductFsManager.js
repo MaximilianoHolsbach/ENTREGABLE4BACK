@@ -1,5 +1,5 @@
 import fs from "fs";
-
+import crypto from "crypto"
 class ProductManager {
   constructor(ruta) {
     this.products = [];
@@ -17,10 +17,7 @@ class ProductManager {
   async create(data) {
     try {
       const product = {
-        id:
-          this.products.length === 0
-            ? 1
-            : this.products[this.products.length - 1].id + 1,
+        id: crypto.randomBytes(12).toString("hex"),
         title: data.title,
         photo: data.photo,
         price: data.price,
@@ -75,7 +72,7 @@ class ProductManager {
   async destroy(id) {
     try {
       const index = this.products.findIndex(
-        (product) => product.id === Number(id)
+        (product) => product.id == (id)
       );
       if (index === -1) {
         throw new Error(

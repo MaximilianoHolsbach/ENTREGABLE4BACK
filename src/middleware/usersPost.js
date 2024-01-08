@@ -1,6 +1,6 @@
-function propsProducts(req, res, next){
-    const {title , photo , price} = req.body;
-    if(!title || !photo || !price){
+function usersPost(req, res, next){
+    const {name, photo, email} = req.body
+    if(!name || !photo || !email){
         return res.json({
             statusCode : 400,
             message : `${req.method} ${req.url} Todos los campos son requeridos`
@@ -10,4 +10,4 @@ function propsProducts(req, res, next){
     }
 }
 
-export default propsProducts
+export default usersPost

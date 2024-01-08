@@ -2,9 +2,8 @@ import { Router } from "express";
 import producto from "../../data/fs/ProductFsManager.js";
 import propsProducts from "../../middleware/propsProducts.js";
 
-const productsRouter = Router();
 
-// Definir post get put delete
+const productsRouter = Router();
 
 productsRouter.post("/", propsProducts, async (req, res, next) => {
   try {
@@ -58,13 +57,13 @@ productsRouter.get("/:pid", async (req, res, next) => {
   }
 });
 
-productsRouter.put("/:pid/:quantity", async (req, res, next) => {
+productsRouter.put("/:pid", async (req, res, next) => {
   try {
-    const { pid, quantity } = req.params;
-    const product = await producto.update(pid, quantity);
+    const {pid} = req.params
+    const data = req.body
+    const product = await producto.update(pid, data);
     if (
-      product == `Ingrese un id ${pid} valido` ||
-      product == `Ingrese una cantidad ${quantity} valida`
+      product == `Ingrese un id ${pid} valido`
     ) {
       return res.json({
         statusCode: 400,

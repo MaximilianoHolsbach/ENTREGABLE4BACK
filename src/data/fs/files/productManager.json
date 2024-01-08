@@ -1,30 +1,29 @@
 [
   {
-    "id": 1,
+    "id": "740d4e2778c4e3216387a206",
     "title": "TONER MP301",
     "photo": "https://png.pngtree.com/png-vector/20190321/ourlarge/pngtree-vector-users-icon-png-image_856952.jpg",
     "price": 100,
-    "stock": 50
+    "stock": 100
   },
   {
-    "id": 2,
-    "title": "TONER MP402",
-    "photo": "https://png.pngtree.com/png-vector/20190321/ourlarge/pngtree-vector-users-icon-png-image_856952.jpg",
-    "price": 30,
-    "stock": 50
-  },
-  {
-    "id": 3,
-    "title": "TONER MP501",
-    "photo": "https://png.pngtree.com/png-vector/20190321/ourlarge/pngtree-vector-users-icon-png-image_856952.jpg",
-    "price": 50,
-    "stock": 50
-  },
-  {
-    "id": 4,
+    "id": "b773243e124d394fd7abb7a7",
     "title": "TONER MP305",
     "photo": "https://png.pngtree.com/png-vector/20190321/ourlarge/pngtree-vector-users-icon-png-image_856952.jpg",
-    "price": 70,
+    "price": 150,
     "stock": 50
+  },
+  {
+    "id": "9e615431636b2ff38f433098",
+    "title": "TONER MP401",
+    "photo": "https://png.pngtree.com/png-vector/20190321/ourlarge/pngtree-vector-users-icon-png-image_856952.jpg",
+    "price": 200,
+    "stock": 50
+  },
+  {
+    "id": "1f50994880ac0109f0859b17",
+    "title": "TONER IM430",
+    "photo": "https://png.pngtree.com/png-vector/20190321/ourlarge/pngtree-vector-users-icon-png-image_856952.jpg",
+    "price": 250
   }
 ]
